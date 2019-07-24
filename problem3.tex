@@ -1,0 +1,160 @@
+\documentclass[12pt]{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\title{Problem 3 - Sinh(x) Algorithms }
+\author{Jesus Onofre Diaz - 40035954}
+\date{July 19, 2019}
+\begin{document}
+\maketitle
+\section{Function $Sinh(x)$ Recap}
+\noindent The hyperbolic function Sinh of a given number x is denoted by the expression $sinh(x)= \frac{e^x- e^{-x}}{2}$ where $e$ often called Euler's number is an irrational number which is usually calculated using the expression $e= (\frac{1+1}{n})^n$ where $n$ is any natural number, the greater the $n$ number is the closer to most commonly used value by this constant which is $2.71827$.   \\
+\noindent
+\subsection{Algorithms}
+The algorithm for calculating the $sinh(x)$ involves the implementation of different procedures such as the calculation of the $e$ value which can be calculated using different approaches, the power of a number $n^n$, the power of a number $n^{-n}$ and the calculation of the absolute value of a number $\mid n \mid$ where $n \in {R}$. 
+\noindent
+\newline
+The procedure for calculating $e$ was implemented using two different approaches, the first one is by resolving the expression $e= (\frac{1+1}{n})^n$. The second approached used for calculating the $e$ value is by resolving the equation $e= (\frac{1}{0!} + \frac{1}{1!}+...\frac{1}{n!})$ where $!$ is the factorial of $n$ and $n$ is any natural number. 
+\newline
+\newline
+The procedure for calculating the positive power of $n$ was implemented using a recursive function and an iterative function.
+\newline
+The procedure for calculating the negative power of $n$ was implemented using the expression $a^{-n} = \frac{1}{a^n}$.
+\newline
+The procedure for calculating the absolute value of $-n$ was implemented using the expression $abs(-n) = -n*-1$.
+
+\subsection{Algorithm 1 Advantages}
+The algorithm 1 uses a simple implementation of its involved functions which allows a better usage of the resources such as memory and processor, plus this algorithm applies the principle of Modularity which helps in the Maintainability of the system and in the Readability of the program.  
+\subsection{Algorithm 1 Disadvantages}
+Some operations are set to a finite number of operations and some results could vary slightly when numbers are extreme large.  
+\subsection{Algorithm 2 Advantages}
+The algorithm 2 is implemented applying the principle of separation of concerns, all the sub modules in the function are highly cohesive and low coupled, this allows the program being maintainable and change prone.
+\subsection{Algorithm 2 Disadvantages}
+The use of some recursive and iterative methods could demand more resources and make the application to have low performance when dealing with a great load of operations. 
+\begin{algorithm}
+
+\caption{Calculate $sinh(x)$ Function}
+
+\textbf{Require:}  value: $x from -\propto to + \propto$  \Comment{where $x \in {R}$}\\
+\textbf{Ensure:} $result = \frac{e^x- e^{-x}}{2}$
+\begin{algorithmic}[1]
+
+\Procedure {CalculatePower}{$base$, $exponent$}
+    \State $power \leftarrow 1$
+    
+    \For {$i \leftarrow 1, exponent$}
+    \State $power \leftarrow power * base$
+    \EndFor
+    \State \textbf{return} $power$\Comment{returns the power of a positive exponent}
+    \EndProcedure
+\Statex
+
+\Procedure {CalculateNegativePower}{$x$}
+    \State $power \leftarrow 0$
+    \State $power \leftarrow \frac{1}{x}$
+    \State \textbf{return} $power$\Comment{returns the power of a negative exponent}
+    \EndProcedure
+\Statex
+\Procedure {AbsoluteValue}{$x$}
+    \State $a \leftarrow x*-1$
+    \State \textbf{return} $a$\Comment{returns the absolute value of x}
+    \EndProcedure
+\Statex
+\Procedure {CalculateEuler}{ }
+    \State $value \leftarrow 5000$\Comment{value is a set number}
+    \State $e \leftarrow 0$
+    \State $calcule_e \leftarrow 0$
+    \State $e \leftarrow \frac{1+1}{value}$
+    \State $calcule_e \leftarrow \Call{CalculatePower}{e,value} $
+    \State \textbf{return} $calcule_e$\Comment{returns euler value}
+    \EndProcedure
+\Statex
+
+\Procedure {CalculateSinhX}{$x$}
+    \State $aux1 \leftarrow 0$ \Comment{receives the value of positive power}
+    \State $aux2 \leftarrow 0$ \Comment{receives the value of negative power}
+   \State $aux1 \leftarrow \Call{CalculatePower}{CalculateEuler{ },x} $
+   \State $aux2 \leftarrow \Call{CalculateNegativePower}{aux1} $
+    \State \textbf{return} $(aux1-aux2)*0.5${}\Comment{returns sinh of x}
+    \EndProcedure
+\Statex
+
+
+\State $ result \leftarrow \Call{CalculateSinhX}{x}$\Comment{Final result of $sinh x$}
+
+\end{algorithmic}
+\end{algorithm}
+\begin{algorithm}
+
+\caption{Calculate $sinh(x)$ Function, second approach for e and power}
+
+\textbf{Require:}  value: $x from -\propto to + \propto$  \Comment{where $x \in {R}$}\\
+\textbf{Ensure:} $result = \frac{e^x- e^{-x}}{2}$
+\begin{algorithmic}[1]
+
+\Procedure {CalculatePower}{$base$, $exponent$}
+    \If {$exponent\leftarrow 0$}
+    \State \textbf{return} $1$\Comment{case base of the recursive function}
+    \EndIf
+    \State \textbf{return} $base*\Call{CalculatePower}{n,exponent-1}$\Comment{recursive execution}
+    \EndProcedure
+\Statex
+%%	public static double negative_pow2(double n, double pow)
+%%	{
+%%		double aux=n;
+%%		pow=absolute_value(pow);
+%%		for (int i = 2; i <= pow; i++) {
+%%			aux=aux*n;
+%%		} 
+%%		double res;
+%%		res=1/aux;
+%%		return res;
+%%	}
+
+\Procedure {CalculateNegativePower}{$n,x$}
+    \State $aux \leftarrow n$
+    \State $x \leftarrow  \Call{AbsoluteValue}{x} $
+     \For {$i \leftarrow 2, x$}
+    \State $aux \leftarrow aux * n$
+    \EndFor
+    \State \textbf{return} $response$\Comment{returns the power of a negative exponent}
+    \EndProcedure
+\Statex
+\Procedure {AbsoluteValue}{$x$}
+    \State $a \leftarrow x*-1$
+    \State \textbf{return} $a$\Comment{returns the absolute value of x}
+    \EndProcedure
+\Statex
+\Procedure {CalculateEulerFactorial}{$n$ }
+    \State $aux \leftarrow 1$\Comment{auxiliar variable}
+    \For {$i \leftarrow 1, n$}
+    \State $aux \leftarrow aux * i$
+    \EndFor
+    \State \textbf{return} $aux$\Comment{returns euler factorial}
+    \EndProcedure
+\Statex
+
+\Procedure {CalculateEuler}{ }
+    \State $aux \leftarrow 1$\Comment{auxiliar variable}
+    \For {$i \leftarrow 1, 10$}
+    \State $aux \leftarrow aux+(\frac{1}{\Call{CalculateEulerFactorial}{x}})$
+    \EndFor
+    \State \textbf{return} $aux$\Comment{returns euler value}
+    \EndProcedure
+\Statex
+
+\Procedure {CalculateSinhX}{$x$}
+   \State $euler1 \leftarrow \Call{CalculatePower}{CalculateEuler{ },x} $ 
+   \State $euler2 \leftarrow \Call{CalculateNegativePower}{euler1,x} $
+    \State \textbf{return} $(euler1-euler2)*0.5${}\Comment{returns sinh of x}
+    \EndProcedure
+\Statex
+
+
+
+\State $ result \leftarrow \Call{CalculateSinhX}{x}$\Comment{Final result of $sinh x$}
+%%\State $ b \leftarrow \Call{CalculateNaturalLog}{b}$\Comment{Calculates $ln b$}
+%%\State $result \leftarrow a/b $\Comment{Final result of $log_b x$}
+%%sinh_fun=sinh_x(x);
+\end{algorithmic}
+\end{algorithm}
+\end{document}
