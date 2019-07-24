@@ -1,0 +1,381 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT PREAMBLE %%%
+\documentclass[12pt]{report}
+\usepackage[english]{babel}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+%\usepackage{natbib}
+\usepackage{url}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+\title{Deliverable 1 Problems 1 to 3 Function $sinh(x)$ }					
+% Title
+\author{Jesus Onofre Diaz}						
+% Author
+\date{}
+% Date
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\theauthor}
+\lhead{\thetitle}
+\cfoot{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+	\centering
+    \vspace*{0.5 cm}
+   % \includegraphics[scale = 0.075]{bsulogo.png}\\[1.0 cm]	% University Logo
+\begin{center}    \textsc{\Large   SOEN 6011}\\[2.0 cm]	\end{center}% University Name
+	\textsc{\Large Software Processes }\\[0.5 cm]				% Course Code
+	\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	{ \huge \bfseries \thetitle}\\
+	\rule{\linewidth}{0.2 mm} \\[1.5 cm]
+	
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft} \large
+		%	\emph{Submitted To:}\\
+		%	Name\\
+          % Affiliation\\
+           %contact info\\
+			\end{flushleft}
+			\end{minipage}~
+			\begin{minipage}{0.4\textwidth}
+            
+			\begin{flushright} \large
+			\emph{Submitted By : 40035954} \\
+		Jesus Onofre Diaz
+		https://github.com/jonofre21
+		\break
+			July 19, 2019
+		\end{flushright}
+	
+           
+	\end{minipage}\\[2 cm]
+	
+%	\includegraphics[scale = 0.4]{Con_Logo1.jpg}
+
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\thesection}{\arabic{section}}
+\section{Function Description}
+ 
+
+It is a basic hyperbolic function which is better expressed in terms of exponential function sinh, denoted by $sinh(x)= \frac{e^x- e^{-x}}{2}$		
+This function represents a hyperbola, it could be seen like the trigonometric sin but sinh does not deal with triangles but hyperbolas, these hyperbolic function has an extended reputation on the physics filed, for example when “describing the shape of the curve formed by a high-voltage line suspended between two towers”.
+
+
+\subsection{Domain}
+All the real numbers from -infinite to +infinite.
+This function is an odd function, because for all and each value of $ x: sinh(-x) = -sinh(x)$
+This function is a continuous function because its derivate is greater than 0. Where the set (0,0) is the inflection point.\ref{a1}
+\subsection{Co-Domain}
+All the real numbers from $-\propto to +\propto$
+\subsection{Characteristic of the function: }
+As per this formula $sinh(x)= \frac{e^x- e^{-x}}{2}$ we can infer for the resulting graph certain characteristics, for example, when x =0, $e^x$=1 and $e^{-x}$=1, so sinh 0 = 0
+We can observe in the below graph 1 that when x gets larger, $e^x$ increases quickly and decreases quickly. 
+When x is negative, $e^{-x}$ becomes large and negative very quickly, but decreases very quickly.
+\pagebreak
+\subsection{Graph}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{g1.png}
+    \caption{source. $http://www.mathcentre.ac.uk/resources/workbooks/mathcentre/hyperbolicfunctions.pdf$}
+    \label{fig3}
+\end{figure}
+
+
+
+\pagebreak
+\renewcommand{\thesection}{\arabic{section}}
+\section{Function Express Requirements}
+ 
+
+This report aims to describe the $y=sinh(x)$ function requirements and assumptions for a calculator application according to the ISO/IEC/IEEE 29148 standards.
+This function is expressed by the formula:
+$sinh(x)= \frac{e^x- e^{-x}}{2}$ where e is constant value.
+
+\subsection{Functional Assumptions}
+
+\begin{itemize}
+\item Assumption 1
+\begin{itemize}
+\item ID:       FUNA1
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Jesus
+\item PRIORITY: 1 
+\item Difficulty: Easy
+\item DESC: Floating-point values are returned for floating-point arguments.
+\item Rationale:when $x=2.8$  $y = 8.19$
+
+\end{itemize}
+\item Assumption 2
+\begin{itemize}
+\item ID:       FUNA2
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Jesus
+\item PRIORITY: 1 
+\item Difficulty: Easy
+\item DESC: $y=sinh(x) =0$ when x =0, this is due to the nature of the formula $sinh(x)= \frac{e^x- e^{-x}}{2} = \frac{1 - 1}{2}=0$ exact for finite x.
+\item Rationale:$x=0$
+\end{itemize}
+\pagebreak
+
+\item Assumption 3
+\begin{itemize}
+\item ID:       FUNA4
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Jesus
+\item PRIORITY: 1 
+\item Difficulty: Easy
+\item DESC: The sinh(x) curve is positive where $e^{x}$ is large, and negative where $e^{-x}$ is large.
+\item Rationale: $e^{x}$ and $e^{-x}$
+\end{itemize}
+\end{itemize}
+
+\pagebreak
+\subsection{Requirements}
+
+\begin{itemize}
+\item Requirement 1
+\begin{itemize}
+\item ID:       FUNR1
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Jesus
+\item PRIORITY: 1 
+\item Difficulty: Easy
+\item DESC: The arguments passed to the function sinh(x) shall be real numbers from $-\propto to +\propto$ and they can be expressed in radians.
+\item Rationale:when $x=2.2$, $ y = 4.45$ where x expressed in radians.
+\end{itemize}
+\item Requirement 2
+\begin{itemize}
+\item ID:       FUNR2
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Jesus
+\item PRIORITY: 1 
+\item Difficulty: Easy
+\item DESC: Euler's Number (e) is an irrational number which is a constant that has an approximate value of 2.71828, this value will be provided
+\item Rationale: $(1 + 1/n)n$ where $n>0 $ and $n<=1000$
+\end{itemize}
+\pagebreak
+\item Requirement 3
+\begin{itemize}
+\item ID:       FUNR3
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Jesus
+\item PRIORITY: 1 
+\item Difficulty: Easy
+\item DESC: Power function, this function will be calculated
+\item Rationale:for an even number $a^{b}= (a^2)^b/2$  odd $a^{b}=a*(a^2)^b/2$
+for negative number $a^{-n}$ = $1/a^{n}$
+\end{itemize}
+\item Requirement 4
+\begin{itemize}
+\item ID:       FUNR4
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Jesus
+\item PRIORITY: 1 
+\item Difficulty: Easy
+\item DESC: Absolute value function, this function will be calculated
+\item Rationale:for any real number $|−n| = n$  and for $|0| = 0$
+\end{itemize}
+\end{itemize}
+
+\newpage
+\section{Function $Sinh(x)$ Algorithms}
+\noindent The hyperbolic function Sinh of a given number x is denoted by the expression $sinh(x)= \frac{e^x- e^{-x}}{2}$ where $e$ often called Euler's number is an irrational number which is usually calculated using the expression $e= (\frac{1+1}{n})^n$ where $n$ is any natural number, the greater the $n$ number is the closer to most commonly used value by this constant which is $2.71827$.   \\
+\noindent
+\subsection{Algorithms Description}
+The algorithm for calculating the $sinh(x)$ involves the implementation of different procedures such as the calculation of the $e$ value which can be calculated using different approaches, the power of a number $n^n$, the power of a number $n^{-n}$ and the calculation of the absolute value of a number $\mid n \mid$ where $n \in {R}$. 
+\noindent
+\newline
+The procedure for calculating $e$ was implemented using two different approaches, the first one is by resolving the expression $e= (\frac{1+1}{n})^n$. The second approached used for calculating the $e$ value is by resolving the equation $e= (\frac{1}{0!} + \frac{1}{1!}+...\frac{1}{n!})$ where $!$ is the factorial of $n$ and $n$ is any natural number. 
+\newline
+\newline
+The procedure for calculating the positive power of $n$ was implemented using a recursive function and an iterative function.
+\newline
+The procedure for calculating the negative power of $n$ was implemented using the expression $a^{-n} = \frac{1}{a^n}$.
+\newline
+The procedure for calculating the absolute value of $-n$ was implemented using the expression $abs(-n) = -n*-1$.
+
+\subsection{Algorithm 1 Advantages}
+The algorithm 1 uses a simple implementation of its involved functions which allows a better usage of the resources such as memory and processor, plus this algorithm applies the principle of Modularity which helps in the Maintainability of the system and in the Readability of the program.  
+\subsection{Algorithm 1 Disadvantages}
+Some operations are set to a finite number of operations and some results could vary slightly when numbers are extreme large.  
+\subsection{Algorithm 2 Advantages}
+The algorithm 2 is implemented applying the principle of separation of concerns, all the sub modules in the function are highly cohesive and low coupled, this allows the program being maintainable and change prone.
+\subsection{Algorithm 2 Disadvantages}
+The use of some recursive and iterative methods could demand more resources and make the application to have low performance when dealing with a great load of operations. 
+\begin{algorithm}
+
+\caption{Calculate $sinh(x)$ Function}
+
+\textbf{Require:}  value: $x from -\propto to + \propto$  \Comment{where $x \in {R}$}\\
+\textbf{Ensure:} $result = \frac{e^x- e^{-x}}{2}$
+\begin{algorithmic}[1]
+
+\Procedure {CalculatePower}{$base$, $exponent$}
+    \State $power \leftarrow 1$
+    
+    \For {$i \leftarrow 1, exponent$}
+    \State $power \leftarrow power * base$
+    \EndFor
+    \State \textbf{return} $power$\Comment{returns the power of a positive exponent}
+    \EndProcedure
+\Statex
+
+\Procedure {CalculateNegativePower}{$x$}
+    \State $power \leftarrow 0$
+    \State $power \leftarrow \frac{1}{x}$
+    \State \textbf{return} $power$\Comment{returns the power of a negative exponent}
+    \EndProcedure
+\Statex
+\Procedure {AbsoluteValue}{$x$}
+    \State $a \leftarrow x*-1$
+    \State \textbf{return} $a$\Comment{returns the absolute value of x}
+    \EndProcedure
+\Statex
+\Procedure {CalculateEuler}{ }
+    \State $value \leftarrow 5000$\Comment{value is a set number}
+    \State $e \leftarrow 0$
+    \State $calcule_e \leftarrow 0$
+    \State $e \leftarrow \frac{1+1}{value}$
+    \State $calcule_e \leftarrow \Call{CalculatePower}{e,value} $
+    \State \textbf{return} $calcule_e$\Comment{returns euler value}
+    \EndProcedure
+\Statex
+
+\Procedure {CalculateSinhX}{$x$}
+    \State $aux1 \leftarrow 0$ \Comment{receives the value of positive power}
+    \State $aux2 \leftarrow 0$ \Comment{receives the value of negative power}
+   \State $aux1 \leftarrow \Call{CalculatePower}{CalculateEuler{ },x} $
+   \State $aux2 \leftarrow \Call{CalculateNegativePower}{aux1} $
+    \State \textbf{return} $(aux1-aux2)*0.5${}\Comment{returns sinh of x}
+    \EndProcedure
+\Statex
+
+
+\State $ result \leftarrow \Call{CalculateSinhX}{x}$\Comment{Final result of $sinh x$}
+
+\end{algorithmic}
+\end{algorithm}
+\begin{algorithm}
+
+\caption{Calculate $sinh(x)$ Function, second approach for e and power}
+
+\textbf{Require:}  value: $x from -\propto to + \propto$  \Comment{where $x \in {R}$}\\
+\textbf{Ensure:} $result = \frac{e^x- e^{-x}}{2}$
+\begin{algorithmic}[1]
+
+\Procedure {CalculatePower}{$base$, $exponent$}
+    \If {$exponent\leftarrow 0$}
+    \State \textbf{return} $1$\Comment{case base of the recursive function}
+    \EndIf
+    \State \textbf{return} $base*\Call{CalculatePower}{n,exponent-1}$\Comment{recursive execution}
+    \EndProcedure
+\Statex
+
+
+\Procedure {CalculateNegativePower}{$n,x$}
+    \State $aux \leftarrow n$
+    \State $x \leftarrow  \Call{AbsoluteValue}{x} $
+     \For {$i \leftarrow 2, x$}
+    \State $aux \leftarrow aux * n$
+    \EndFor
+    \State \textbf{return} $response$\Comment{returns the power of a negative exponent}
+    \EndProcedure
+\Statex
+\Procedure {AbsoluteValue}{$x$}
+    \State $a \leftarrow x*-1$
+    \State \textbf{return} $a$\Comment{returns the absolute value of x}
+    \EndProcedure
+\Statex
+\Procedure {CalculateEulerFactorial}{$n$ }
+    \State $aux \leftarrow 1$\Comment{auxiliar variable}
+    \For {$i \leftarrow 1, n$}
+    \State $aux \leftarrow aux * i$
+    \EndFor
+    \State \textbf{return} $aux$\Comment{returns euler factorial}
+    \EndProcedure
+\Statex
+
+\Procedure {CalculateEuler}{ }
+    \State $aux \leftarrow 1$\Comment{auxiliar variable}
+    \For {$i \leftarrow 1, 10$}
+    \State $aux \leftarrow aux+(\frac{1}{\Call{CalculateEulerFactorial}{x}})$
+    \EndFor
+    \State \textbf{return} $aux$\Comment{returns euler value}
+    \EndProcedure
+\Statex
+
+\Procedure {CalculateSinhX}{$x$}
+   \State $euler1 \leftarrow \Call{CalculatePower}{CalculateEuler{ },x} $ 
+   \State $euler2 \leftarrow \Call{CalculateNegativePower}{euler1,x} $
+    \State \textbf{return} $(euler1-euler2)*0.5${}\Comment{returns sinh of x}
+    \EndProcedure
+\Statex
+
+
+
+\State $ result \leftarrow \Call{CalculateSinhX}{x}$\Comment{Final result of $sinh x$}
+%%\State $ b \leftarrow \Call{CalculateNaturalLog}{b}$\Comment{Calculates $ln b$}
+%%\State $result \leftarrow a/b $\Comment{Final result of $log_b x$}
+%%sinh_fun=sinh_x(x);
+\end{algorithmic}
+\end{algorithm}
+
+\newpage
+\section{Acknowledgments}
+
+ Professor P. Kamthan and his great group of teaching assistants for the material and guidance.
+\newpage
+ 
+\begin{thebibliography}{111}
+   
+  \bibitem{ACAMP}
+Encyclopedia Britannica. (2019). Hyperbolic functions | mathematics. [online] Available at: https://www.britannica.com/science/hyperbolic-functions [Accessed 12 Jul. 2019].
+
+%if the "underfill \hbox" warning bothers you uncomment the following line
+%\raggedright
+\bibitem{ACAMP}
+    Hunsicker, E. (2019). http://www.mathcentre.ac.uk/. [online] Mathcentre.ac.uk. Available at: http://www.mathcentre.ac.uk/resources/workbooks/mathcentre/hyperbolicfunctions.pdf [Accessed 12 Jul. 2019]..
+
+\end{thebibliography}
+
+%\ifCLASSOPTIONcaptionsoff
+ % \newpage
+%\fi
+
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,ref.bib}
+
+\end{document}
