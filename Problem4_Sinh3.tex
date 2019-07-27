@@ -1,0 +1,82 @@
+\documentclass[12pt]{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\title{Problem 4 - Sinh(x) Implementation }
+\author{Jesus Onofre Diaz - 40035954 -
+https://github.com/jonofre21/SOEN6011}
+\date{July 26, 2019}
+\begin{document}
+\maketitle
+\section{Function $Sinh(x)$ Implementation}
+\noindent This report aims to describe the implementation of the function $sinh(x)= \frac{e^x- e^{-x}}{2}$, the approach for implementing the algorithm for resolving the equation changed a little bit from the one mentioned on the pseudo-codes this is because of the fact that some functionalities were not working properly during the implementation, this report will give a little description of all decisions taken during the implementation as well as the tools used during this stage such as eclipse debugger and coding check style.
+The application is completely usable, tested and efficient. For ensuring the maintainability of the application the approach was divided into 2 classes one for the User Interface and one for the business logic, in the user interface class is called the main method of the business class that call internally all the rest of the methods.\\
+This approach provides a simple and intuitive window in which the user just types what he or she needs related to the function, plus the function provides with error handling mechanisms that make the application more clear when a mistype is written down providing straightforward error messages to user.  
+\noindent
+\subsection{Program quality attributes}
+
+\begin{itemize}
+\item Correctness
+\begin{itemize}
+\item All the functions all the application are tested to achieve a quality program for the user.
+\end{itemize}
+\pagebreak
+\item Efficiency
+\begin{itemize}
+\item Program uses simple but powerful functions that allow the user to perform operations accurately without consuming high amount of computer resources.
+\end{itemize}
+
+\item Maintainability
+\begin{itemize}
+
+\item Program is modular, Logic and User Interface are separate classes low coupled and with high cohesion, this approach not also improves the quality of the program but also reduces the maintenance cost.
+\end{itemize}
+\item Robustness
+\begin{itemize}
+
+\item Program handle errors preventing the program to crash providing the user with a high available application that is difficult to terminate unexpectedly.
+\end{itemize}
+
+\item Usability
+\begin{itemize}
+
+\item Program is easy to use, user intuitively can perform the operations needed for the target function obtaining the expected results or simple error messages describing the possible issue. 
+\end{itemize}
+\end{itemize}
+
+\noindent
+
+
+\section{Implementation Tools}
+In this section the set of tools used during the implementation will be described giving brief and concise arguments of why those tools were used and mentioning some of its advantages and disadvantages.   
+\subsection{Debugger}
+During the implementation of this application, the eclipse debugger was used, one of the benefits of using this debugger is that is in-built in eclipse IDE which was the tool used to code the solution of the problem, this makes the development process easiest, practical and faster. The advantage of being an integrated debugger makes the run-debug program easy to interact.
+\break
+This debugger is intuitive, providing to the programmer an easy way to analyze the code, this tool provides a Toggle break point which is the reference point to be analyzed, the debugger shows inputs and outputs in every iteration showing the values of the variables as well the expressions. 
+
+ Examining variables and expressions while executing code step-by-step is an invaluable tool for investigating problems with your code. This excerpt from Chapter 2 of Eclipse in Action: A guide for Java developers provides an introduction to creating a Java project, running a Java program, and debugging it.
+ It can be observed the debugger in action in the figure below fig. \ref{fig3}.
+ 
+
+ \begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{debugger.jpg}
+    \caption{used in this implementation}
+    \label{fig3}
+\end{figure}
+
+\subsection{Checkstyle}
+
+For checking that the program is following the correct java standards, it was used the Checkstyle Plugin which is a tool that can be added to the eclipse IDE. This tool is helpful as well as intuitive, it inspects the code and gives a report of the possible sentences of the code that are not in accordance with the coding rules. Checkstyle gives gives different options to configure it, it is possible to create different filters to have a better understanding of the outputs, it provides as well a set of suggestions according to the problem found in the code, it also highlight the code that is in the report giving to the programmer a trace to the marked problems.
+\break
+This tools makes easy to analyze the code and the fact of being an internal tool of the IDE used for implementing the solution makes the plugin a good ally at the moment of coding, plus this the reviews of this tool are good among the programmers comunity which it was one of the criterias for selecting it for this project, below it can be this tool in action fig \ref{fig4}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{checkstyle.jpg}
+    \caption{used in this implementation}
+    \label{fig4}
+\end{figure}
+
+
+\end{document}
